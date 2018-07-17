@@ -17,7 +17,6 @@ app.use('/api', cors({
   origin: false
 }), Router);
 
-
 app.use((err, request, response) => {
   response
     .status(err.status || HttpStatus.INTERNAL_SERVER_ERROR)

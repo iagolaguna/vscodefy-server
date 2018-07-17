@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/vscodefy/vscodefy-server#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -36,7 +37,8 @@
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "http-status": "^1.0.1"
+    "http-status": "^1.0.1",
+    "spotify-web-api-node": "^3.1.1"
   },
   "devDependencies": {
     "eslint": "^5.1.0",
