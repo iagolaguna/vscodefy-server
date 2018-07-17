@@ -1,0 +1,52 @@
+{
+  "name": "vscodefy-server",
+  "version": "1.0.0",
+  "description": "server for vscodefy-client extesion of vscode",
+  "main": "src",
+  "scripts": {
+    "linter": "eslint src",
+    "build": "babel src -d dist --source-maps",
+    "prestart": "npm run build",
+    "start": "set PORT=80 && node dist",
+    "prestart-babel": "babel-node src",
+    "start-babel": "babel-node src",
+    "predev": "npm run linter",
+    "dev": "nodemon --exec npm run start-babel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vscodefy/vscodefy-server.git"
+  },
+  "author": "Iago Laguna <iagolaguna.83@gmail.com>",
+  "contributors": [
+    "Marcos Vinicius <contato@vmarcosp.com"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vscodefy/vscodefy-server/issues"
+  },
+  "homepage": "https://github.com/vscodefy/vscodefy-server#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "http-status": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.18.2",
+    "npm": "^5.8.0"
+  }
+}
