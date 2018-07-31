@@ -1,3 +1,4 @@
+import os from 'os';
 import express from 'express';
 import SpotifyWebApi from 'spotify-web-api-node';
 
@@ -6,15 +7,17 @@ const router = express.Router();
 const redirectUrl = 'http://localhost:8095/api/callback';
 
 router.get('/status', (req, res) => {
-  res.json({ message: 'OK' });
+  console.log(os.hostname());
+  console.log(process.env.host);
+  res.json({ message: 'OK', hostname: os.hostname(), host: process.env.host });
 });
 
 router.get('/spotify', (req, res) => {
   const { CLIENT_ID } = process.env;
   const scope = [
+    'user-modify-playback-state',
     'user-read-private',
     'user-read-email',
-    'user-modify-playback-state',
     'user-read-currently-playing',
     'streaming'
   ];
@@ -35,7 +38,7 @@ router.get('/callback', async (req, res) => {
   });
 
   const { body } = await spotifyApi.authorizationCodeGrant(code)
-  res.json(body);
+  res.json({...body, code});
 });
 
 export default router;

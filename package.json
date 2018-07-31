@@ -5,9 +5,8 @@
   "main": "src",
   "scripts": {
     "linter": "eslint src",
-    "build": "babel src -d dist --source-maps",
-    "prestart": "npm run build",
-    "start": "set PORT=80 && node dist",
+    "build": "babel src -s -D -d dist",
+    "start": "node dist",
     "prestart-babel": "babel-node src",
     "start-babel": "babel-node src",
     "predev": "npm run linter",
