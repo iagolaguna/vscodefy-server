@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-node';
 
 const router = express.Router();
 
-const redirectUrl = 'http://localhost:8095/api/callback';
+const redirectUrl = 'http://localhost:8080';
 
 router.get('/status', (req, res) => {
   console.log(os.hostname());
@@ -28,17 +28,41 @@ router.get('/spotify', (req, res) => {
   res.redirect(`${url}&scope=${scope.join(',')}`);
 });
 
-router.get('/callback', async (req, res) => {
+router.get('/authorize', async (req, res) => {
+  console.log('find request');
   const { code } = req.query;
+  console.log(code);
   const { CLIENT_ID, CLIENT_SECRET } = process.env;
+
   const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
     redirectUri: redirectUrl
   });
-
-  const { body } = await spotifyApi.authorizationCodeGrant(code)
-  res.json({...body, code});
+  try {
+    const { body } = await spotifyApi.authorizationCodeGrant(code)
+    res.json(body);
+  } catch (err) {
+    console.log(err);
+    res.json(err).statusCode(500);
+  }
 });
 
+router.get('/refreshToken', async (req, res) => {
+  const { refreshToken } = req.query;
+  const { CLIENT_ID, CLIENT_SECRET } = process.env;
+
+  const spotifyApi = new SpotifyWebApi({
+    clientId: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    refreshToken
+  });
+  try {
+    const { body } = await spotifyApi.refreshAccessToken()
+    res.json(body);
+  } catch (err) {
+    console.log(err);
+    res.json(err).statusCode(500);
+  }
+})
 export default router;
