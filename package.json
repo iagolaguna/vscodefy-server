@@ -6,6 +6,7 @@
   "scripts": {
     "linter": "eslint src",
     "build": "babel src -s -D -d dist",
+    "prestart": "npm run build",
     "start": "node dist",
     "prestart-babel": "babel-node src",
     "start-babel": "babel-node src",
