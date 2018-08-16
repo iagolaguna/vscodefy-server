@@ -31,10 +31,7 @@ router.get('/spotify', (req, res) => {
 
 router.get('/authorize', async (req, res) => {
   const { code } = req.query;
-  console.log(code);
   const { CLIENT_ID, CLIENT_SECRET } = process.env;
-  console.log(CLIENT_ID);
-  console.log(CLIENT_SECRET);
   const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
@@ -44,8 +41,6 @@ router.get('/authorize', async (req, res) => {
     const { body } = await spotifyApi.authorizationCodeGrant(code)
     res.json(body);
   } catch (err) {
-    console.log(err);
-    console.log(JSON.stringify(err));
     res.status(500).json(err);
   }
 });
