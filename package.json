@@ -15,17 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vscodefy/vscodefy-server.git"
+    "url": "git+https://github.com/iagolaguna/vscodefy-server.git"
   },
-  "author": "Iago Laguna <iagolaguna.83@gmail.com>",
-  "contributors": [
-    "Marcos Vinicius <contato@vmarcosp.com"
-  ],
+  "author": {
+    "name": "Iago Leonardo Laguna",
+    "email": "iagolaguna.83@gmail.com",
+    "url": "https://github.com/iagolaguna"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vscodefy/vscodefy-server/issues"
+    "url": "https://github.com/iagolaguna/vscodefy-server/issues"
   },
-  "homepage": "https://github.com/vscodefy/vscodefy-server#readme",
+  "homepage": "https://github.com/iagolaguna/vscodefy-server#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",

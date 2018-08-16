@@ -4,7 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-node';
 
 const router = express.Router();
 
-const redirectUrl = 'http://localhost:8080';
+const redirectUrl = 'https://vscodefy.netlify.com';
 
 router.get('/status', (req, res) => {
   console.log(os.hostname());
@@ -31,7 +31,10 @@ router.get('/spotify', (req, res) => {
 
 router.get('/authorize', async (req, res) => {
   const { code } = req.query;
+  console.log(code);
   const { CLIENT_ID, CLIENT_SECRET } = process.env;
+  console.log(CLIENT_ID);
+  console.log(CLIENT_SECRET);
   const spotifyApi = new SpotifyWebApi({
     clientId: CLIENT_ID,
     clientSecret: CLIENT_SECRET,
@@ -42,6 +45,7 @@ router.get('/authorize', async (req, res) => {
     res.json(body);
   } catch (err) {
     console.log(err);
+    console.log(JSON.stringify(err));
     res.status(500).json(err);
   }
 });
