@@ -8,10 +8,9 @@
     "build": "babel src -s -D -d dist",
     "prestart": "npm run build",
     "start": "node dist",
-    "prestart-babel": "babel-node src",
-    "start-babel": "babel-node src",
+    "babel": "babel-node src",
     "predev": "npm run linter",
-    "dev": "nodemon --exec npm run start-babel"
+    "dev": "nodemon --exec npm run babel"
   },
   "repository": {
     "type": "git",
@@ -51,5 +50,9 @@
     "eslint-plugin-standard": "^3.1.0",
     "nodemon": "^1.18.2",
     "npm": "^5.8.0"
+  },
+  "engines": {
+    "node":"^8.11.3",
+    "npm":"^5.6.0"
   }
 }
