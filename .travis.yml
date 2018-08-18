@@ -1,3 +1,5 @@
 language: node_js
+install:
+  - nvm install "$(jq -r '.engines.node' package.json)"
 script:
   - npm run build
