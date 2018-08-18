@@ -49,10 +49,10 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "nodemon": "^1.18.2",
-    "npm": "^5.8.0"
+    "npm": "^6.4.0"
   },
   "engines": {
-    "node":"^8.11.3",
-    "npm":"^5.6.0"
+    "node": "^8.11.3",
+    "npm": "^5.6.0"
   }
 }
