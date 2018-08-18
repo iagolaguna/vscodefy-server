@@ -6,6 +6,7 @@
   "scripts": {
     "linter": "eslint src",
     "build": "babel src -s -D -d dist",
+    "postinstall": "npm run build",
     "start": "node dist",
     "babel": "babel-node src",
     "predev": "npm run linter",
