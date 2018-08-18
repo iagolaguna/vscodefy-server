@@ -8,7 +8,7 @@ script:
 - npm run build
 deploy:
   provider: heroku
-  app: vscodefy-server
+  app: vscodefy
   on:
     repo: iagolaguna/vscodefy-server
   api_key:
