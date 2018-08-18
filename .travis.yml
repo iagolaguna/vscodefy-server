@@ -1,5 +1,8 @@
 language: node_js
+sudo: false
+node_js:
+  - "8.11.3"
 install:
-  - nvm install "$(jq -r '.engines.node' package.json)"
+  - npm install
 script:
   - npm run build
