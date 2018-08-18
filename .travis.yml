@@ -1,8 +1,12 @@
 language: node_js
 sudo: false
 node_js:
-  - "8.11.3"
+- 8.11.3
 install:
-  - npm install
+- npm install
 script:
-  - npm run build
+- npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: CJ1yhmG0pX5QQ3zYbi7EpBmMaT+zmo4HQXtXJ8Cuh75zkH+clRf42PKr3o087Txg8UqzgPU980/EQiv4uH/zHoCgrauI9DAHd40QeuLXyKa0DUn7KI1ShKfatcHq1gO9tDYSr/U3Y7hfLry77pjISP0PrAvy3zvEQ/FwwOg6KimShIGxDjCEm//7vTpoeWCDbYpckHMCW0DJZYk5cmnfLdLOnadcBurIfdFerrBnWcroWpD9cSiUaevGfaOSLVKFTh1WzEGZARSLrJX0nYY/kf2e0ZA9qqbne227zCmU4z3zeKQX0g1/fj1BJThx+zMf/0X3+CfoI1Gkc5ZPknd59q9v73NrD1JZSlGOtdlzTeSHL1zD8xVspM3A8Y6Zncp7Ao5EMP+Rc70RUkcUJJ8hKLWXOrkJ2NP1XO8B257Z31/O+dzDOnbxVk4AAUKNj7JnDBXUWPBfioedXvJm3/UXlQxcxLdcZ8ReByzPZ7cZQ58pkb/n8FYCn93FUJ9doGVbWM+LoE0olGtJxTQzLgG0uAR7Y12ILbcl26czMn9a5gGm5YIc8/96HaBeYJb4RZ786fPmtev/lFy9FIB0L4D2gbs/1paD8fwtkz/9f7jnT0wDk20bhg8CsUQi2AqmCvvG6wNXYSLrXjYufwjiUFVZx82gbTg/WRQD0TyIJWOs7dw=
