@@ -9,7 +9,7 @@ router.get('/status', (req, res) => {
   res.json({ message: 'OK'});
 });
 
-router.get('/authorize', async (req, res) => {
+router.get('/authorize', async (req, res, next) => {
   const { code } = req.query;
   const { CLIENT_ID, CLIENT_SECRET } = process.env;
   const spotifyApi = new SpotifyWebApi({
@@ -21,14 +21,14 @@ router.get('/authorize', async (req, res) => {
     const { body } = await spotifyApi.authorizationCodeGrant(code)
     res.json(body);
   } catch (err) {
-    res.status(500).json(err);
+    next(err)
   }
 });
 
-router.get('/refreshToken', async (req, res) => {
+router.get('/refreshToken', async (req, res, next) => {
   const { refreshToken } = req.query;
   if (!refreshToken) {
-    res.status(400).json({ message: 'invalid refreshToken' });
+    return next({ httpErrorCode: 400, message: 'invalid refreshToken' })
   }
   const { CLIENT_ID, CLIENT_SECRET } = process.env;
 
@@ -41,8 +41,7 @@ router.get('/refreshToken', async (req, res) => {
     const { body } = await spotifyApi.refreshAccessToken()
     res.json(body);
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    next(err)
   }
 })
 
