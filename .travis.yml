@@ -10,6 +10,6 @@ deploy:
   provider: heroku
   app: vscodefy
   on:
-    repo: vscodefy/vscodefy-server
+    repo: iagolaguna/vscodefy-server
   api_key:
     secure: $HEROKU_API_KEY
