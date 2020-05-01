@@ -10,6 +10,6 @@ const serverPort = port || PORT || 8095;
 app.listen(serverPort, () => console.log(`server running at port ${serverPort}`));
 
 app.use((err, req, res, next) => {
-  console.err(err)
+  console.error(err)
   res.status(err.httpErrorCode || 500).json(err.message || 'Internal server error')
 });
