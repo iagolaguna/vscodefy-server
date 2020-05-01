@@ -3,10 +3,10 @@ import SpotifyWebApi from 'spotify-web-api-node';
 
 const router = express.Router();
 
-const redirectUrl = 'https://vscodefy.netlify.com';
+const redirectUrl = 'https://vscodefy.netlify.app';
 
 router.get('/status', (req, res) => {
-  res.json({ message: 'OK'});
+  res.json({ message: 'OK' });
 });
 
 router.get('/authorize', async (req, res, next) => {
@@ -21,6 +21,7 @@ router.get('/authorize', async (req, res, next) => {
     const { body } = await spotifyApi.authorizationCodeGrant(code)
     res.json(body);
   } catch (err) {
+
     next(err)
   }
 });
