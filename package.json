@@ -36,7 +36,7 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "http-status": "^1.0.1",
     "spotify-web-api-node": "^3.1.1"
   },
